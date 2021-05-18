@@ -1,4 +1,4 @@
-To run this the backend, you need to download and install [NodeJS](https://nodejs.org/en/download/) and [MongoDB Compass](https://www.mongodb.com/products/compass).
+To run this the backend, you need to download and install [NodeJS](https://nodejs.org/en/download/),[MongoDB Community Server](https://www.mongodb.com/try/download/community) and [MongoDB Compass](https://www.mongodb.com/products/compass).
 
 1. Fork a copy of the project for your own profile.
 2. Git clone the project to your local directory.

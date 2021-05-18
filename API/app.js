@@ -26,7 +26,7 @@ app.use((req, res, next) => {
     return res.status(404).send({ res: 'Path not found'});
   });
   
-mongoose.connect('mongodb://localhost:27017/?readPreference=primary&ssl=false')
+mongoose.connect('mongodb://localhost:27017/?readPreference=primary&ssl=false', { useNewUrlParser: true,useUnifiedTopology: true })
   .then(() => {
     app.listen(port);
   })
