@@ -108,7 +108,7 @@ const password = async (req, res, next) => {
     if (!existingUser) {
         return res.status(422).json({ res: 'User does not exist, please try again '});
     }
-    const hpass = crypto.pbkdf2Sync(masterPass, existingUser.salt, 100000, 16, 'sha512').toString('hex');
+    const hpass = crypto.pbkdf2Sync(masterPass, existingUser.salt, 100000, 32, 'sha512').toString('hex');
     const encryptedpass = crypto.createCipher("aes-256-gcm",hpass).update(pass, "utf-8", "hex");
     const encypteduser= crypto.createCipher("aes-256-gcm",hpass).update(user, "utf-8", "hex");
     const createdDetails = new Password({
@@ -147,7 +147,7 @@ const password = async (req, res, next) => {
     }
     
     if (existingUser && passwords) {
-        const hpass = crypto.pbkdf2Sync(masterPassword, existingUser.salt, 100000, 16, 'sha512').toString('hex');
+        const hpass = crypto.pbkdf2Sync(masterPassword, existingUser.salt, 100000, 32, 'sha512').toString('hex');
         const decryptedpass = crypto.createDecipher("aes-256-gcm", hpass).update(pass, "hex", "utf-8");
         const decrypteduser = crypto.createDecipher("aes-256-gcm", hpass).update(user, "hex", "utf-8");
         const password= {user:decrypteduser, password:decryptedpass};
