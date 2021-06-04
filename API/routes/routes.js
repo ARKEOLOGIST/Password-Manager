@@ -55,7 +55,27 @@ router.post(
     ],
     usersController.password
 );
-
+router.post(
+    '/Decryptedval',
+    [
+        check('identity')
+        .not()
+        .isEmpty(),
+        check('password')
+        .not()
+        .isEmpty(),
+        check('masterPassword')
+        .not()
+        .isEmpty(),
+        check('user')
+        .not()
+        .isEmpty(),
+        check('pass')
+        .not()
+        .isEmpty()    
+    ],
+    usersController.Decryptedval
+);
 router.post(
     '/fetch',
     [

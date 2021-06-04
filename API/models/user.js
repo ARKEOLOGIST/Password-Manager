@@ -7,12 +7,15 @@ const userSchema = new Schema({
     name: { type: String, required: true },
     email: { type: String, required: true },
     identity: { type: Number, required: true, unique: true },
+    salt:{type: String, required: true, unique: true},
     password: { type: String, required: true },
+    masterPassword: { type: String, required: true },
 });
 
 const userS = mongoose.model('User', userSchema);
 
 const passwordSchema = new Schema({
+    website: { type: String, required: true },
     user: { type: String, required: true },
     pass: { type: String, required: true },
     link: { type: Number, required: true }
