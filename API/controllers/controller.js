@@ -3,11 +3,11 @@ const crypto = require('crypto');
 const { User, Password } = require('../models/user');
 
 const signup = async (req, res, next) => {
-    const errors = validationResult(req);
+    const errors = validationResult(req.body);
     if (!errors.isEmpty()) {
       return res.status(422).json({ res: 'Invalid inputs passed, please check your data'});
     }
-    const { name,email,identity,password,masterPassword} = req.body;
+    const { name,email,identity,password,masterPassword } = req.body;
 
     let existingUser;
     try {
@@ -28,9 +28,8 @@ const signup = async (req, res, next) => {
       identity,
       salt,
       password,
-      hash,
+      masterPassword: hash
     });
-  
     try {
       await createdUser.save();
     } catch (err) {

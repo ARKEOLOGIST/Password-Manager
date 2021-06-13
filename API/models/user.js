@@ -30,6 +30,7 @@ const passwordSchema = new Schema({
 const passwordS = mongoose.model('Password', passwordSchema);
 
 userSchema.plugin(uniqueValidator);
+passwordSchema.plugin(uniqueValidator);
 
 exports.User = userS;
 exports.Password = passwordS;

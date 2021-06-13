@@ -19,6 +19,9 @@ router.post(
       .isEmpty(),
       check('password')
       .not()
+      .isEmpty(),
+      check('masterPassword')
+      .not()
       .isEmpty()
   ],
   usersController.signup
