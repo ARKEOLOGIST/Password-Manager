@@ -46,25 +46,22 @@ router.post(
         check('identity')
         .not()
         .isEmpty(),
-        check('password')
-        .not()
-        .isEmpty(),
         check('user')
         .not()
         .isEmpty(),
         check('pass')
+        .not()
+        .isEmpty(),
+        check('website')
         .not()
         .isEmpty()
     ],
     usersController.password
 );
 router.post(
-    '/Decryptedval',
+    '/decrypt',
     [
         check('identity')
-        .not()
-        .isEmpty(),
-        check('password')
         .not()
         .isEmpty(),
         check('masterPassword')
@@ -77,7 +74,7 @@ router.post(
         .not()
         .isEmpty()    
     ],
-    usersController.Decryptedval
+    usersController.decrypt
 );
 router.post(
     '/fetch',
